@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Any WebManifest</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            background: #f8f9fa;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 10px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin: 0;
+            color: #333;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .status {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .status.active {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.inactive {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .config-count {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+
+        .current-url {
+            margin: 10px 0;
+            padding: 8px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 11px;
+            word-break: break-all;
+            color: #666;
+        }
+
+        .match-info {
+            margin: 8px 0;
+            padding: 6px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            background: #e7f3ff;
+            border: 1px solid #b8daff;
+            color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="icons/icon48.png" alt="Any WebManifest" class="logo">
+        <h1>Any WebManifest</h1>
+        <div class="subtitle">动态WebManifest注入器</div>
+    </div>
+
+    <div id="status" class="status info">
+        正在检查当前页面...
+    </div>
+
+    <div class="current-url" id="currentUrl">
+        获取当前URL中...
+    </div>
+
+    <div class="config-count">
+        <span>配置数量:</span>
+        <span id="configCount">-</span>
+    </div>
+
+    <div id="matchInfo" class="match-info" style="display: none;">
+        匹配的配置: <span id="matchedPattern"></span>
+    </div>
+
+    <div class="buttons">
+        <button class="btn btn-primary" id="openOptions">打开配置页面</button>
+        <button class="btn btn-secondary" id="refreshPage">刷新当前页面</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
