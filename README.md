@@ -1,4 +1,6 @@
 # Any WebManifest
+> 起因是想在单独的应用里用用飞书文档, 但是飞书文档没有单独的客户端也没有pwa  
+
 
 一个Chrome浏览器插件，可以根据URL配置动态为网页注入WebManifest链接。
 
